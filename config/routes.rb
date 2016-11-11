@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: redirect('/admin')
   namespace :api do
     get 'categories', to: :index, controller: 'categories'
+    get 'jobs', to: :index, controller: 'jobs'
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

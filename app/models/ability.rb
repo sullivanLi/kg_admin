@@ -5,12 +5,13 @@ class Ability
     if user
       can :access, :rails_admin
       can :dashboard
-      can :read, :all
       can :manage, Location
       can :manage, Category
       can :manage, Job
+      can :manage, JobDetail
+      can :manage, JobType
       if user.admin?
-        can :manage, User
+        can :manage, All
       end
     end
   end

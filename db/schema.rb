@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161027195826) do
+ActiveRecord::Schema.define(version: 20161110213602) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -19,17 +19,36 @@ ActiveRecord::Schema.define(version: 20161027195826) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "jobs", force: :cascade do |t|
+  create_table "job_details", force: :cascade do |t|
+    t.string   "name"
     t.string   "title"
     t.text     "content"
+    t.integer  "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "job_details", ["job_id"], name: "index_job_details_on_job_id"
+
+  create_table "job_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
     t.boolean  "active"
     t.integer  "category_id"
     t.integer  "location_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "job_type_id"
   end
 
   add_index "jobs", ["category_id"], name: "index_jobs_on_category_id"
+  add_index "jobs", ["job_type_id"], name: "index_jobs_on_job_type_id"
   add_index "jobs", ["location_id"], name: "index_jobs_on_location_id"
 
   create_table "locations", force: :cascade do |t|
