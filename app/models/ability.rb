@@ -11,7 +11,7 @@ class Ability
       can :manage, JobDetail
       can :manage, JobType
       if user.admin?
-        can :manage, All
+        can :manage, :all
       end
     end
   end
