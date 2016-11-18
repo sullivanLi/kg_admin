@@ -1,5 +1,5 @@
 collection @jobs
-attributes :id, :title, :description
+attributes :id, :title, :description, :summary
 node(:location) { |job| job.location.name }
 node(:type) { |job| job.job_type.name }
 child :job_details => "details" do
