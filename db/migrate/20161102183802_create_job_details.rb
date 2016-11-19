@@ -4,7 +4,7 @@ class CreateJobDetails < ActiveRecord::Migration
       t.string :name
       t.string :title
       t.text :content
-      t.belongs_to :job, index: true, foreign_key: true
+      t.belongs_to :job, index: true
 
       t.timestamps null: false
     end

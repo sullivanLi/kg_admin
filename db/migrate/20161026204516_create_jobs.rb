@@ -4,8 +4,8 @@ class CreateJobs < ActiveRecord::Migration
       t.string :title
       t.text :content
       t.boolean :active
-      t.belongs_to :category, index: true, foreign_key: true
-      t.belongs_to :location, index: true, foreign_key: true
+      t.belongs_to :category, index: true
+      t.belongs_to :location, index: true
 
       t.timestamps null: false
     end
